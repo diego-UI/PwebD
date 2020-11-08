@@ -21,6 +21,7 @@ $(document).ready(function() {
  $('.confpass').removeAttr('disabled');
  }
  });
+ $('.error').hide();
  $('.password').blur(function(){
  data=$('.password').val();
  var len=data.length;
@@ -28,21 +29,28 @@ $(document).ready(function() {
  {
  $('.password').next().show();
  $('.confpass').attr('disabled',true);
+ $('.userid').attr('disabled',true);
  }
  else
  {
  $('.password').next().hide();
  $('.confpass').removeAttr('disabled');
+ $('.userid').removeAttr('disable');
  }
  });
+ $('.error').hide();
  $('.confpass').blur(function(){
  if($('.password').val() !=$('.confpass').val())
  {
  $('.confpass').next().show();
+ $('.userid').attr('disabled',true);
+ $('.password').attr('disabled',true);
  }
  else
  {
  $('.confpass').next().hide();
+ $('.userid').attr('disabled',true);
+ $('.password').attr('disabled',true);
  }
  });
 }); 
@@ -57,6 +65,9 @@ name="password" /><span class="error"> Password cannot be blank</span></div>
 
 <div ><span class="label">Confirm Password </span><input type="password" class="confpass"
 name="confpass" /><span class="error"> Password and Confirm Password don't match</span></div>
+
+<button type="submit" class="btn btn-primary submit">submit</button>
+
 
 </body>
 </html>
